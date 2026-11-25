@@ -23,14 +23,6 @@ resource "aws_security_group" "domain_controller" {
   description = "Restricted RDP access for the domain controller"
   vpc_id      = var.vpc_id
 
-  ingress {
-    description = "RDP from approved administrator IP only"
-    from_port   = 3389
-    to_port     = 3389
-    protocol    = "tcp"
-    cidr_blocks = [var.allowed_rdp_cidr]
-  }
-
   egress {
     from_port   = 0
     to_port     = 0
